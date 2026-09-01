@@ -1,4 +1,5 @@
 namespace labyrinth_game.Models;
+using static System.Console;
 
 public class Player
 {
@@ -14,5 +15,13 @@ public class Player
         y =  startY;
         PlayerMarker = "O";
         PlayerColor = ConsoleColor.Red;
+    }
+
+    public void Draw()
+    {
+        ForegroundColor = PlayerColor;
+        SetCursorPosition(x, y);
+        Write(PlayerMarker);
+        ResetColor();
     }
 }

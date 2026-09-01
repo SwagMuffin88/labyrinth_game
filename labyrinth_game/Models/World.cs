@@ -1,7 +1,6 @@
+namespace labyrinth_game.Models;
 using System;
 using static System.Console;
-
-namespace labyrinth_game.Models;
 
 public class World
 {

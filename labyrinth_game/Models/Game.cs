@@ -26,11 +26,8 @@ public class Game
 
         var world = new World(grid);
         world.Draw();
-        
-        WriteLine("\n" + world.IsPositionWalkable(0, 0));
-        WriteLine(world.IsPositionWalkable(1, 1));
-        WriteLine(world.IsPositionWalkable(6, 1));
-        
+
+        var player = new Player(1, 1);
         
         WriteLine("\n Press any key to exit...");
         ReadKey(true);
