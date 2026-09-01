@@ -28,4 +28,14 @@ public class World
             }
         }
     }
+
+    public bool IsPositionWalkable(int x, int y)
+    {
+        if (x < 0 || x >= Cols || y < 0 || y >= Rows)
+        {
+            return false;
+        }
+        
+        return Grid[y, x] == " " || Grid[y, x] == "X";
+    }
 }
