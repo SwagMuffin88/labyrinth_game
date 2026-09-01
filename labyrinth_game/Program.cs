@@ -1,29 +1,13 @@
-var builder = WebApplication.CreateBuilder(args);
+using System;
+using labyrinth_game.Models;
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+namespace labyrinth_game;
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+class Program
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    static void Main(string[] args)
+    {
+        Game game = new Game();
+        game.Start();
+    }
 }
-
-app.UseHttpsRedirection();
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapStaticAssets();
-
-app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
-
-app.Run();
