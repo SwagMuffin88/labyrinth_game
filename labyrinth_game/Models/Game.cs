@@ -15,6 +15,8 @@ public class Game
         WriteLine("Starting game...");
         Thread.Sleep(1000);
 
+        Title = "Welcome to the maze!";
+
         string[,] grid = {
             { "=", "=", "=", "=", "=", "=", "=" },
             { "=", " ", "=", " ", " ", " ", "X" },
@@ -93,6 +95,7 @@ public class Game
     {
         CursorVisible = false;
         DisplayIntro();
+        Clear();
 
         while (true)
         {

@@ -23,6 +23,16 @@ public class World
             {
                 string element = Grid[y, x];
                 SetCursorPosition(x, y);
+
+                if (element == "X")
+                {
+                    ForegroundColor = ConsoleColor.Green;
+                }
+                else
+                {
+                    ForegroundColor = ConsoleColor.White;
+                }
+                
                 Write(element);
             }
         }
