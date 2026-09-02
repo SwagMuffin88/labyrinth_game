@@ -28,6 +28,11 @@ public class World
         }
     }
 
+    public string GetElementAt(int x, int y)
+    {
+        return Grid[y, x];
+    }
+
     public bool IsPositionWalkable(int x, int y)
     {
         if (x < 0 || x >= Cols || y < 0 || y >= Rows)

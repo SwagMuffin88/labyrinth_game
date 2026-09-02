@@ -30,6 +30,29 @@ public class Game
         RunGameLoop();
     }
 
+    private void DisplayIntro()
+    {
+        WriteLine("Welcome to the maze!");
+        WriteLine("\nInstructions");
+        WriteLine("> Use the arrow keys to move");
+        Write("> Try to reach the goal, which looks like this: ");
+        ForegroundColor = ConsoleColor.Green;
+        WriteLine("X");
+        
+        ResetColor();
+        WriteLine("> Press any key to start");
+        ReadKey(true);
+    }
+    
+    private void DisplayOutro()
+    {
+        Clear();
+        WriteLine("You escaped!");
+        WriteLine("Thanks for playing");
+        WriteLine("Press any key to exit...");
+        ReadKey(true);
+    }
+
     private void DrawFrame()
     {
         SetCursorPosition(0, 0); // Vältimaks ekraani vilkumist Clear() asemel
@@ -69,12 +92,22 @@ public class Game
     private void RunGameLoop()
     {
         CursorVisible = false;
+        DisplayIntro();
 
         while (true)
         {
             DrawFrame();
             HandlePlayerInput();
+            
+            string elementAtPlayerPosition = _world.GetElementAt(_player.x,  _player.y);
+            if (elementAtPlayerPosition == "X")
+            {
+                break;
+            }
+            
             Thread.Sleep(20); // Tsükkel jätkub, break eemaldatud
         }
+        
+        DisplayOutro();
     }
 }
